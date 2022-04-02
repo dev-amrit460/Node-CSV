@@ -12,16 +12,22 @@
     }
   </style>
   <body>
-    <h3><%= title %></h3>
-    <p>Welcome to <%= title %></p>
+<div class="center">
+  <h3><%= title %></h3>
+  <p>Welcome to Raftlab's <%= title %></p>
+</div>
+<center><div class="btn-group" role="group" aria-label="Basic example">
+  <a href="/"><button type="button" class="btn btn-danger">All</button></a>
+  <a href="books"><button type="button" class="btn btn-danger">Books</button></a>
+  <a href="magazines"><button type="button" class="btn btn-danger">Magazines</button></a>
+  <a href="authors"><button type="button" class="btn btn-danger">Authors</button></a>
+</div></center>
+<br></br>
 
-  <a href="books"><button  class="btn-primary">Books</button></a>
-  <a href="authors"><button class="btn-secondary">Authors</button></a>
-  <a href="magazines"><button class="btn-danger" >Magazines</button></a>
-    <!-- book -->
     <% if (data) { %>
-    <h3>This is for book</h3>
-    <table class="table table-striped">
+   <h3>| For book |</h3>
+   <br></br>
+    <table class="table table-danger table-striped">
       <thead>
         <tr><th>Title</th>
         <th>ISBN</th>
@@ -37,7 +43,7 @@
       </tr>
       <% } %>
 
-      <form action="/add-book" method="post">
+      <div class="forms"><form action="/add-book" method="post">
         <input type="text" name="title" placeholder="Title" />
         <input type="text" name="isbn" placeholder="ISBN" />
         <input type="text" name="authors" placeholder="Authors" />
@@ -46,23 +52,27 @@
       </form>
       <br></br>
       <form action="/filter-book" method="post" >
-        SEARCH ISBN: <input type="text" name="isbn" placeholder="ISBN" />
+        SEARCH BY ISBN: <input type="text" name="isbn" placeholder="ISBN" />
         <input type="submit" value="Search" />
       </form>
       <br></br>
       <form action="/filter-email" method="post" >
-        SEARCH EMAIL: <input type="text" name="email" placeholder="ISBN" />
+        SEARCH BY EMAIL: <input type="text" name="email" placeholder="EMAIL" />
         <input type="submit" value="Search" />
       </form>
-
+      
+      <br></br>
+    </div>
+    <a class="h5" href="downbook" style="display: flex; float: right;">Export</a>
 
     </table>
     <% } %>
 
     <!-- Magazines -->
     <% if (mg) { %>
-    <h3>This is for Magazines</h3>
-    <table class="table table-striped">
+    <h3>| For Magazines |</h3>
+    <br></br>
+    <table class="table table-danger table-striped">
       <thead>
         <tr><th>Title</th>
         <th>ISBN</th>
@@ -78,7 +88,7 @@
       </tr>
       <% } %>
 
-      <form action="/add-mg" method="post">
+      <div class="forms"><form action="/add-mg" method="post">
         <input type="text" name="title" placeholder="Title" />
         <input type="text" name="isbn" placeholder="ISBN" />
         <input type="text" name="authors" placeholder="Authors" />
@@ -87,22 +97,26 @@
       </form>
       <br></br>
       <form action="/filter-book" method="post" >
-        SEARCH ISBN: <input type="text" name="isbn" placeholder="ISBN" />
+        SEARCH BY ISBN: <input type="text" name="isbn" placeholder="ISBN" />
         <input type="submit" value="Search" />
       </form>
       <br></br>
       <form action="/filter-email" method="post" >
-        SEARCH EMAIL: <input type="text" name="email" placeholder="ISBN" />
+        SEARCH BY EMAIL: <input type="text" name="email" placeholder="EMAIL" />
         <input type="submit" value="Search" />
       </form>
+      <br></br>
+      </div>
+      <a class="h5" href="downmg" style="display: flex; float: right;">Export</a>
     </table>
     <% } %>
 
     <!-- authors -->
 
     <% if (auth) { %>
-    <h3>This is for Authors</h3>
-    <table class="table table-striped">
+    <h3>| For Authors |</h3>
+    <br></br>
+    <table class="table table-danger table-striped">
       <thead>
         <tr><th>Email</th>
         <th>Firstname</th>
@@ -115,13 +129,16 @@
         <td><%= auth[i].lastname %></td>
       </tr>
       <% } %>
-
+      <div class="forms">
       <form action="/add-auth" method="post">
         <input type="text" name="email" placeholder="email" />
         <input type="text" name="firstname" placeholder="firstname" />
         <input type="text" name="lastname" placeholder="lastname" />
         <input type="submit" value="Add Authors" />
       </form>
+      <br></br>
+      </div>
+      <a class="h5" href="downauth" style="display: flex; float: right;">Export</a>
     </table>
     <% } %>
   </body>
