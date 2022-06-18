@@ -13,21 +13,21 @@ let authors;
 
 /* GET ROUTES*/
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Assignment', data: books, mg: magazines, auth: authors });
+  res.render('index', { title: 'Node-CSV', data: books, mg: magazines, auth: authors });
 });
 
 router.get('/books', function (req, res, next) {
   uploadData();
-  res.render('index', { title: 'Assignment', data: books, mg: null, auth: null });
+  res.render('index', { title: 'Node-CSV', data: books, mg: null, auth: null });
 });
 
 router.get('/magazines', function (req, res, next) {
   uploadData();
-  res.render('index', { title: 'Assignment', mg: magazines, data: null, auth: null });
+  res.render('index', { title: 'Node-CSV', mg: magazines, data: null, auth: null });
 });
 
 router.get('/authors', function (req, res, next) {
-  res.render('index', { title: 'Assignment', auth: authors, data: null, mg: null });
+  res.render('index', { title: 'Node-CSV', auth: authors, data: null, mg: null });
 });
 
 
